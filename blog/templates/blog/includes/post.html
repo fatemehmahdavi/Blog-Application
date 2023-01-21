@@ -1,0 +1,16 @@
+
+{% load static %}
+
+{% comment %} shows post preview for each post {% endcomment %}
+
+<li>
+    <article class="post">
+        <a href="{% url 'post-detail-page' "mountain-hiking" %}">
+            <img src="{% static 'blog/images/mountains.jpg' %}" alt="Mountain Hiking" />
+            <div class="post__content">
+                <h3>Mountatin Hiking</h3>
+                <p>There's nothing like the views you get when you hike the mountains! I was really enjoying the views</p>
+            </div>
+        </a>
+    </article>
+</li>    

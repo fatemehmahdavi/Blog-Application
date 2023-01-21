@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'blog/index.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/includes/post.css' %}">
+{% endblock %}
+
+{% block title %}
+    My blog HomePage
+{% endblock %}
+
+
+{% block content %}
+
+    <section id="welcome">
+        <header>
+            <img src="{% static 'blog/images/fatemeh.webp' %}" alt="Fatemeh- The Author of This blog" />
+            <h2>FATEMEH'S BLOG</h2>
+        </header>
+        <P>Hi I am Fatemeh and I like to blog about tech and the world!</P>   
+    </section>
+
+    <section id="latest-posts">
+        <h2>My Latest Thoughts</h2>
+        <ul>
+            {% include 'blog/includes/post.html' %}
+            {% include 'blog/includes/post.html' %}
+            {% include 'blog/includes/post.html' %}
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>What I Do</h2>
+        <p>
+            I love programming! I like helping others and enjoy
+        </p>
+        <p>
+            My goal is to stay consistent on the learning journey! I hope I can help you with this!
+        </p>
+    </section>
+
+
+
+{% endblock %}
+
+
+
+{% comment %} developer = > func give_me_number(number: int):
+                  pass
+
+developer = url => /home/<int: number>/
+
+
+human => number = > value = > 3 ---------------------> /home/3
+
+Django => number => give_me_number
+=> url => /home/<number>/
+
+value 3 =============================> number
+            /home/{} {% endcomment %}
