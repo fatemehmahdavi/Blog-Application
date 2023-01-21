@@ -87,20 +87,25 @@ def starrting_page(request):
    sorted_posts = sorted(all_posts, key=get_date) #sort the posts by their date. we don't execute get_date and python executes get_date for us for every post when it sorts that posts list so it goes through the posts list calls get_date for every post in that list to get that date and compares the dates with eachother to sort the overall arrray
    latest_posts = sorted_posts[-3:]
    return render (request, "blog/index.html", context = {
-    "posts": latest_posts
+    "latest_posts": latest_posts
    })
 
 
 #shows the list of all posts
 def posts(request):
-    return render(request, "blog/all-posts.html")
+    return render(request, "blog/all-posts.html", context = {
+        "all_posts":all_posts
+    })
     # return render(request, "blog/posts.html", context= {
     #     "posts": posts_list
     # })
 
 #shows details of a single post
 def post_detail(request, slug):
-    return render (request, "blog/post-detail.html")
+    ientified_post = next(post for post in all_posts if post['slug'] == slug)
+    return render (request, "blog/post-detail.html", context={
+        "post":ientified_post
+    })
     # post = posts_list[number-1]
     # return render(request, "blog/post.html", context = {
     #     "post_detail": post
